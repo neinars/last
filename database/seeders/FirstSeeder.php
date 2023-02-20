@@ -76,17 +76,17 @@ class FirstSeeder extends Seeder
 
         //KATEGORI
         Kategori::create([
-            'kode' => 'fantasi',
+            'kode' => 'KAT001',
             'nama' => 'Fantasi',
         ]);
 
         Kategori::create([
-            'kode' => 'life',
+            'kode' => 'KAT002',
             'nama' => 'Life',
         ]);
 
         Kategori::create([
-            'kode' => 'money management',
+            'kode' => 'KAT003',
             'nama' => 'Money Management',
         ]);
 
@@ -119,31 +119,31 @@ class FirstSeeder extends Seeder
             'isbn' => '',
             'j_buku_baik' => '12',
             'j_buku_rusak' => '4',
-            'foto' => '',
+            'foto' => '/assets/images/faces/4.jpg',
         ]);
 
         Buku::create([
             'judul' => 'Jago ngoding dalam 5 menit',
             'kategori_id' => '1',
             'penerbit_id' => '1',
-            'pengarang' => 'Nur ali',
+            'pengarang' => 'Clarissa F',
             'tahun_terbit' => '2017',
             'isbn' => '',
             'j_buku_baik' => '12',
             'j_buku_rusak' => '4',
-            'foto' => '',
+            'foto' => '/assets/images/faces/5.jpg',
         ]);
 
         Buku::create([
             'judul' => 'Ensiklopedia anak',
             'kategori_id' => '2',
             'penerbit_id' => '2',
-            'pengarang' => 'Robert',
+            'pengarang' => 'Robert van Dough',
             'tahun_terbit' => '2018',
             'isbn' => '',
             'j_buku_baik' => '12',
             'j_buku_rusak' => '6',
-            'foto' => '',
+            'foto' => '/assets/images/faces/2.jpg',
         ]);
 
         Buku::create([
@@ -155,7 +155,7 @@ class FirstSeeder extends Seeder
             'isbn' => '',
             'j_buku_baik' => '12',
             'j_buku_rusak' => '2',
-            'foto' => '',
+            'foto' => '/assets/images/faces/3.jpg',
         ]);
 
         //PEMINJAMAN

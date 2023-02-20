@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<center>
     <div class="row">
         <div class="col-md-6">
             <div class="card">
@@ -85,7 +86,7 @@
         </div>
 
         {{-- CETAK EXCEL --}}
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">Cetak Laporan E - Perpus <span class="" style="color:green">Excel</span></h5>
@@ -109,7 +110,7 @@
                         <div class="tab-pane fade show active" id="home1" role="tabpanel" aria-labelledby="home-tab">
                             <br>
 
-                            {{-- Form Peminjaman --}}
+                            Form Peminjaman
                             <form action="{{ route('admin.laporan_excel') }}" method="POST" target="_blank">
                                 @csrf
                                 <div class="mt-4">
@@ -124,7 +125,7 @@
                         </div>
 
                         {{-- Form Pengembalian --}}
-                        <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
+                        {{-- <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
                             <br>
 
                             <form action="{{ route('admin.excel_pengembalian') }}" method="POST" target="_blank">
@@ -142,7 +143,7 @@
                         </div>
 
                         {{-- Form Siswa --}}
-                        <div class="tab-pane fade" id="contact1" role="tabpanel" aria-labelledby="contact-tab">
+                      {{--   <div class="tab-pane fade" id="contact1" role="tabpanel" aria-labelledby="contact-tab">
                             <br>
 
                             <form action="{{ route('admin.excel_user') }}" method="POST" target="_blank">
@@ -167,6 +168,7 @@
 
 
             </div>
-        </div>
+        </div> --}}
     </div>
+</center>
 @endsection

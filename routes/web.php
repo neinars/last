@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\IdentitasController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -93,28 +94,30 @@ Route::prefix('/admin')->middleware('auth', 'role:admin')->group(function(){
             Route::delete('/hapus/kategori/{id}', 'deleteKategori')->name('admin.delete.kategori');
         });
 
+        Route::controller(\App\Http\Controllers\Admin\LaporanController::class)->prefix('/laporan')->group(function(){
+            Route::get('/', 'index')->name('admin.index');
+            Route::post('/pdf', 'laporan_pdf')->name('admin.lap_pdf');
+        
+            Route::post('/peminjaman', 'laporan_pdf')->name('admin.laporan_peminjaman');
+            Route::post('/pengembalian', 'laporan_pdf')->name('admin.laporan_pengembalian');
+            Route::post('/laporan_user', 'laporan_pdf')->name('admin.laporan_user');
 
-    //- - - - - - - - - Cetak Laporan- - - - - - - - - -
-    //                [ Laporan PDF]
-    Route::get('/index', [LaporanController::class, 'index'])->name('admin.index');
-    Route::post('/laporan-pdf', [LaporanController::class, 'laporan_pdf'])->name('admin.lap_pdf');
+            Route::post('laporan-excel', 'laporan_excel')->name('admin.laporan_excel');
+            Route::post('/excel-pengembalian', 'excelPengembalian')->name('admin.excel_pengembalian');
+            Route::post('/excel-user', 'excelUser')->name('admin.excel_user');
+        });
 
-    Route::post('/peminjaman', [LaporanController::class, 'laporan_pdf'])->name('admin.laporan_peminjaman');
-    Route::post('/pengembalian', [LaporanController::class, 'laporan_pdf'])->name('admin.laporan_pengembalian');
-    Route::post('/laporan_user', [LaporanController::class, 'laporan_pdf'])->name('admin.laporan_user');
-    //                [ Laporan Excel]
-    Route::post('laporan-excel', [LaporanController::class, 'laporan_excel'])->name('admin.laporan_excel');
-    Route::post('/excel-pengembalian', [LaporanController::class, 'excelPengembalian'])->name('admin.excel_pengembalian');
-    Route::post('/excel-user', [LaporanController::class, 'excelUser'])->name('admin.excel_user');
 
-    //                [ Identitas Applikasi]
-    Route::get('/indexIdentitas', [IdentitasController::class, 'indexIdentitas'])->name('admin.identitas');
-    Route::put('/edit/identitas', [IdentitasController::class, 'updateIdentitas'])->name('admin.update_identitas');
+        Route::controller(\App\Http\Controllers\Admin\IdentitasController::class)->prefix('/identitas')->group(function(){
+            Route::get('/indexIdentitas', 'indexIdentitas')->name('admin.identitas');
+            Route::put('/edit/identitas', 'updateIdentitas')->name('admin.update_identitas');
 
-    //- - - - - - - - - Pesan - - - - - - - - - -
-    Route::get('/pesan-masuk', [AdminPesanController::class, 'pesanMasuk'])->name('admin.pesan_masuk');
-    Route::post('/admin-status', [AdminPesanController::class, 'admin_status'])->name('admin.ubah_status');
+        });
 
-    Route::get('/pesan-terkirim', [AdminPesanController::class, 'pesanTerkirim'])->name('admin.pesan_terkirim');
-    Route::post('/kirim-pesan', [AdminPesanController::class, 'kirimPesan'])->name('admin.kirim_pesan');
+        Route::controller(\App\Http\Controllers\Admin\PesanController::class)->prefix('/pesan')->group(function(){
+            Route::get('/pesan-masuk', 'pesanMasuk')->name('admin.pesan_masuk');
+            Route::post('/admin-status', 'admin_status')->name('admin.ubah_status');
+            Route::get('/pesan-terkirim', 'pesanTerkirim')->name('admin.pesan_terkirim');
+            Route::post('/kirim-pesan', 'kirimPesan')->name('admin.kirim_pesan');
+        });
 });

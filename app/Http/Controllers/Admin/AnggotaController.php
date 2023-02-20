@@ -18,6 +18,7 @@ class AnggotaController extends Controller
         return view('admin.master.anggota', compact('anggota', 'kode'));
     }
 
+
     public function storeAnggota(Request $request)
     {
         $kode = User::where('role', 'user')->count();
@@ -32,6 +33,7 @@ class AnggotaController extends Controller
             'verif' => 'verified',
             'alamat' => $request->alamat,
             'role' => 'user',
+            'foto' => $request->foto,
             'join_date' => Carbon::now()
         ]);
 

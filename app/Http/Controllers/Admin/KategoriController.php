@@ -10,14 +10,18 @@ class KategoriController extends Controller
 {
     public function indexKategori()
     {
+        $total = Kategori::count();
+        $kode = 'KAT00' . $total + 1;
         $kategori = Kategori::all();
-        return view('admin.katalog.kategori', compact('kategori'));
+        return view('admin.katalog.kategori', compact('kategori', 'kode'));
     }
 
     public function storeKategori(Request $request)
     {
+        $total = Kategori::count();
+        $kode = 'KAT00' . $total + 1;
         $kategori = Kategori::create([
-            'kode' => $request->kode,
+            'kode' => $kode,
             'nama' => $request->nama
         ]);
         if ($kategori) {

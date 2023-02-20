@@ -40,8 +40,8 @@
             style="border-radius:50%" /> --}}
 
             {{-- {{ public_path($identitas->foto) }} --}}
-                <img src="#" width="35%" class="" alt="PHOTO"
-                    style="border-radius:50%" />
+                <img src="{{ public_path('assets/images/Untitled.png') }}" width="40%" class="" alt="PHOTO"
+                    style="border-radius:0%" />
             </div>
             <div style="margin-left:11px; text-align:center; font-family:sans-serif">
                 <h2>{{ $identitas->nama_app }}</h2>
@@ -77,7 +77,7 @@
                 @foreach ($peminjaman as $key => $p)
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $p->user->username }}</td>
+                        <td>{{ $p->user->fullname }}</td>
                         <td>{{ $p->buku->judul }}</td>
                         <td>{{ $p->tgl_peminjaman }}</td>
                         <td>{{ $p->tgl_pengembalian }}</td>

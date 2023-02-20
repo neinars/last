@@ -45,14 +45,14 @@
     </li>
 
     <li class="sidebar-item  ">
-        <a href="{{-- Route('admin.index') --}}" class='sidebar-link'>
+        <a href="{{ Route('admin.index') }}" class='sidebar-link'>
             <i class="bi bi-clipboard-data"></i>
             <span>Laporan Perpustakaan</span>
         </a>
     </li>
 
     <li class="sidebar-item  ">
-        <a href="{{-- Route('admin.identitas') --}}" class='sidebar-link'>
+        <a href="{{ Route('admin.identitas') }}" class='sidebar-link'>
             <i class="bi bi-receipt"></i>
             <span>Identitas Aplikasi</span>
         </a>

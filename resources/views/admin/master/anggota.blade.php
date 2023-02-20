@@ -85,6 +85,9 @@
                                             <textarea class="form-control" rows="3" name="alamat"></textarea>
                                         </div>
                                     </div>
+
+                                    {{-- foto --}}
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -107,7 +110,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="{{ route('admin.update.anggota' , $a->id) }}" method="POST"
+                                <form action="{{ route('admin.update.anggota', $a->id) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('put')
@@ -142,16 +145,6 @@
                                             <input type="text" class="form-control" id="formGroupExampleInput"
                                                 placeholder="" value="{{ $a->alamat }}" name="alamat" required>
                                         </div>
-
-                                        {{-- <div class="mb-3">
-                                            <label for="formGroupExampleInput" class="form-label">status</label>
-                                            <select name="verif_id" class="form-select" required>
-                                                <option value="" disabled selected>-- pilih opsion</option>
-                                                <option value="verified">verified</option>
-                                                <option value="unverified">unverified</option>
-                                            </select>
-                                        </div> --}}
-
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -172,7 +165,7 @@
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action={{ route('admin.delete.anggota' , $a->id) }} method="POST"
+                                <form action={{ route('admin.delete.anggota', $a->id) }} method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('DELETE')

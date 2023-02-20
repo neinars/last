@@ -36,7 +36,7 @@
                                         <div class="form-group">
                                             <label>Kode</label>
                                             <input type="text" class="form-control" name="kode"
-                                                placeholder="Kode Kategori" required />
+                                                placeholder="Kode Kategori" required  readonly value="{{ $kode }}"/>
                                         </div>
                                     </div>
                                     <div class="col-12 mb-4">
