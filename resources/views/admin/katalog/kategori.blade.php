@@ -28,7 +28,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <form action="{{ Route('admin.tambah_kategori') }}" enctype="multipart/form-data"
+                            <form action="{{ Route('admin.tambah.kategori') }}" enctype="multipart/form-data"
                                 method="POST" autocomplete="off">
                                 @csrf
                                 <div class="modal-body">
@@ -69,7 +69,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="{{ route('admin.update_kategori', $k->id) }}" method="post">
+                                <form action="{{ route('admin.update.kategori', $k->id) }}" method="post">
                                     @csrf
                                     @method('put')
                                     <div class="modal-body">
@@ -105,7 +105,7 @@
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action={{ url('/admin/hapus/kategori/' . $p->id) }} method="POST"
+                                <form action={{ route('admin.delete.kategori' , $p->id) }} method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('DELETE')
