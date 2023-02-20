@@ -115,7 +115,9 @@
                                     @csrf
                                     @method('put')
                                     <div class="modal-body">
-
+                                        <center>
+                                            <img src="{{ $a->foto == null ? 'profile.png' : $a ->foto }}" class="rounded-circle" style="width: 150px; height: 150px" alt="Avatar" />
+                                        </center>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput" class="form-label">nis</label>
                                             <input type="text" class="form-control" id="formGroupExampleInput"

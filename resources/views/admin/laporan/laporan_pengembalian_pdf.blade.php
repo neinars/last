@@ -36,10 +36,6 @@
     <div class="row">
         <div style="position:relative;">
             <div style="position:absolute; left:37px; top:15px; width:200px;">
-                {{-- <img src="{{ public_path('assets/images/faces/1.jpg') }}" width="35%" class="" alt="Logo-Intek"
-            style="border-radius:50%" /> --}}
-
-                {{-- {{ public_path($identitas->foto) }} --}}
                 <img src="{{ public_path('assets/images/Untitled.png') }}" width="40%" class="" alt="PHOTO" style="border-radius:0%" />
             </div>
             <div style="margin-left:11px; text-align:center; font-family:sans-serif">
@@ -77,7 +73,7 @@
                 @foreach ($pengembalian as $key => $p)
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $p->user->username }}</td>
+                        <td>{{ $p->user->fullname }}</td>
                         <td>{{ $p->buku->judul }}</td>
                         <td>{{ $p->tgl_peminjaman }}</td>
                         <td>{{ $p->tgl_pengembalian }}</td>

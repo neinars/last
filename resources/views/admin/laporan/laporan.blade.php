@@ -70,7 +70,7 @@
                                     <div class="form-group">
                                         <select name="user_id" class="choices form-select">
                                             @foreach ($anggota as $a)
-                                                <option value="{{ $a->id }}">{{ $a->username }}</option>
+                                                <option value="{{ $a->id }}">{{ $a->fullname }}</option>
                                             @endforeach
                                         </select>
                                     </div>
