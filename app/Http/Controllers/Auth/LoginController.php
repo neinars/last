@@ -62,7 +62,7 @@ class LoginController extends Controller
         if ($user->verif == 'unverified') {
             Session::flush();
             Auth::logout();
-            return redirect()->back()->with('status', 'danger')->with('message', 'Gagal Login Unverified User');
+            return redirect()->back()->with('status', 'danger')->with('message', 'Anda belum terverifikasi');
         }
 
         return redirect()->route(

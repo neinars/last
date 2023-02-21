@@ -29,6 +29,8 @@ Route::get('/home', function () {
         return redirect()->route('user.dashboard');
     }})->middleware('auth');
 
+Route::post('/register', [\App\Http\Controllers\UserRegister::class, 'userRegister'])->name('user.register');
+
 Route::prefix('/user')->middleware('auth', 'role:user')->group(function(){
     Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'indexUs'])->name('user.dashboard');
         Route::controller(\App\Http\Controllers\User\PeminjamanController::class)->prefix('/peminjaman')->group(function(){
@@ -47,10 +49,13 @@ Route::prefix('/user')->middleware('auth', 'role:user')->group(function(){
             Route::get('/masuk', 'indexMasuk')->name('user.masuk.pesan.index');
             Route::put('/update', 'updateStatus')->name('user.update.pesan');
         });
-            Route::controller(\App\Http\Controllers\User\ProfileController::class)->prefix('/profile')->group(function(){
+
+        Route::controller(\App\Http\Controllers\User\ProfileController::class)->prefix('/profile')->group(function(){
             Route::get('/', 'index')->name('user.profile');
             Route::put('/photo', 'photo')->name('user.photo');
         });
+
+        Route::get('/berita', [\App\Http\Controllers\Admin\PemberitahuanController::class, 'indexMasuk']);
 });
 
 Route::prefix('/admin')->middleware('auth', 'role:admin')->group(function(){
@@ -111,7 +116,13 @@ Route::prefix('/admin')->middleware('auth', 'role:admin')->group(function(){
         Route::controller(\App\Http\Controllers\Admin\IdentitasController::class)->prefix('/identitas')->group(function(){
             Route::get('/indexIdentitas', 'indexIdentitas')->name('admin.identitas');
             Route::put('/edit/identitas', 'updateIdentitas')->name('admin.update.identitas');
+        });
 
+        Route::controller(\App\Http\Controllers\Admin\PemberitahuanController::class)->prefix('/berita')->group(function(){
+            Route::get('/', 'index')->name('admin.berita');
+            Route::post('/kirim-berita', 'sendNews')->name('admin.kirim.berita');
+            Route::put('/edit/{id}', 'updateBerita')->name('admin.update.berita');
+            Route::delete('/hapus/berita/{id}', 'delete')->name('admin.delete.berita');
         });
 
         Route::controller(\App\Http\Controllers\Admin\PesanController::class)->prefix('/pesan')->group(function(){

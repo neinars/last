@@ -53,6 +53,6 @@ class PesanController extends Controller
         $status->update([
             'status' => 'dibaca'
         ]);
-        return redirect()->route('user.pesan_masuk');
+        return redirect()->route('user.masuk.pesan.index');
     }
 }

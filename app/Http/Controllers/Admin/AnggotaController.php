@@ -62,7 +62,7 @@ class AnggotaController extends Controller
         return redirect()->back();
     }
 
-    public function update_status($id, Request $request){
+    public function updateStatus($id, Request $request){
         $anggota = User::where('id', $id)->first();
 
         // if ($anggota != null) {

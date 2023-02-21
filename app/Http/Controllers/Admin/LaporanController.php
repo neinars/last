@@ -48,15 +48,15 @@ class LaporanController extends Controller
         }
     }
 
-    public function laporan_excel(Request $request){
-        return Excel::download(new LaporanExport($request->tgl_peminjaman), 'laporan-peminjaman.xlsx');
-    }
+    // public function laporan_excel(Request $request){
+    //     return Excel::download(new LaporanExport($request->tgl_peminjaman), 'laporan-peminjaman.xlsx');
+    // }
 
-    public function excelPengembalian(Request $request){
-        return Excel::download(new PengembalianExport($request->tgl_pengembalian), 'laporan-pengembalian.xlsx');
-    }
+    // public function excelPengembalian(Request $request){
+    //     return Excel::download(new PengembalianExport($request->tgl_pengembalian), 'laporan-pengembalian.xlsx');
+    // }
 
-    public function excelUser(Request $request){
-        return Excel::download(new UserExport($request->user_id), 'laporan-anggota.xlsx');
-    }
+    // public function excelUser(Request $request){
+    //     return Excel::download(new UserExport($request->user_id), 'laporan-anggota.xlsx');
+    // }
 }

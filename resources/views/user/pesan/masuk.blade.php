@@ -40,6 +40,7 @@
                                     @if ($p->status == 'terkirim')
                                         <form action="{{ route('user.update.pesan', ['id' => $p->id]) }}" method="POST">
                                             @csrf
+                                            @method('put')
                                             <input type="hidden" name="penerima_id" value="{{ Auth::user()->id }}">
                                             <button type="submit" class="btn btn-success">
                                                 <i class="bi bi-check-lg"></i>

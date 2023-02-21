@@ -16,7 +16,12 @@
             </div>
         </div>
         <br>
-        <div class="alert alert-info">
+        @foreach ($berita as $b)
+            <div class="alert alert-info">
+                <marquee behavior="" direction="">{{ $b->isi }}</marquee>
+            </div>
+        @endforeach
+        <div class="alert alert-secondary">
             @if ($hour >= 0 && $hour <= 11)
                 Selamat Pagi
             @elseif ($hour >= 12 && $hour <= 14)

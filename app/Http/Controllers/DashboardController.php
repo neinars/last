@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\Buku;
 use App\Models\Identitas;
 use App\Models\Kategori;
@@ -22,8 +23,8 @@ class DashboardController extends Controller
         $date->settings(['formatFunction' => 'translatedFormat']);
         $b = time();
         $hour = date("G");
-
-        return view('user.dashboard', compact('date','hour',"pemberitahuans", "bukus", "identitas"));
+        $berita = Berita::where('status', 'aktif')->get();
+        return view('user.dashboard', compact('date','hour','berita' ,"pemberitahuans", "bukus", "identitas"));
     }
 
     public function indexAd()
