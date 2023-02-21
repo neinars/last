@@ -66,14 +66,14 @@
         </a>
         <ul class="submenu ">
             <li class="submenu-item ">
-                <a href="{{-- route('admin.pesan_masuk') --}}">Pesan masuk
+                <a href="{{ route('admin.pesan_masuk') }}">Pesan masuk
                     <span class="badge bg-light-danger badge-pill badge-round float-right mt-50">
                         {{ count($pesan) }}
                     </span>
                 </a>
             </li>
             <li class="submenu-item ">
-                <a href="{{-- route('admin.pesan_terkirim') --}}">Pesan terkirim</a>
+                <a href="{{ route('admin.pesan_terkirim') }}">Pesan terkirim</a>
             </li>
         </ul>
     </li>

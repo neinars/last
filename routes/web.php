@@ -110,7 +110,7 @@ Route::prefix('/admin')->middleware('auth', 'role:admin')->group(function(){
 
         Route::controller(\App\Http\Controllers\Admin\IdentitasController::class)->prefix('/identitas')->group(function(){
             Route::get('/indexIdentitas', 'indexIdentitas')->name('admin.identitas');
-            Route::put('/edit/identitas', 'updateIdentitas')->name('admin.update_identitas');
+            Route::put('/edit/identitas', 'updateIdentitas')->name('admin.update.identitas');
 
         });
 

@@ -7,13 +7,13 @@
     </div>
     <div class="mb-3">
         <center>
-            <img src="{{ $identitas->foto }}" class="rounded-circle" style="width: 150px;" alt="Avatar" />
+            <img src="{{ $identitas->foto }}" class="rounded-circle" style="width: 150px; height:150px" alt="Avatar" />
 
         </center>
 
     </div>
 
-    <form class="form form-vertical" action="{{ url('admin/edit/identitas') }}" method="POST" enctype="multipart/form-data">
+    <form class="form form-vertical" action="{{ route('admin.update.identitas') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="card">
