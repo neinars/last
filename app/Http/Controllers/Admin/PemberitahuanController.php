@@ -44,10 +44,4 @@ class PemberitahuanController extends Controller
 
         return redirect()->back();
     }
-
-    public function indexMasuk(Request $request)
-    {
-        $berita = Berita::where('status', 'aktif')->get();
-        return view('user.dashboard', compact('berita'));
-    }
 }
